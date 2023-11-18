@@ -5,10 +5,10 @@ var rank_element: Resource = preload("res://RankContainer.tscn")
 
 
 func _ready():
-	if not FileAccess.file_exists("user://scores.json"):
+	if not FileAccess.file_exists("res://scores.json"):
 		return
 		
-	var data_path = FileAccess.open("user://scores.json", FileAccess.READ)
+	var data_path = FileAccess.open("res://scores.json", FileAccess.READ)
 	var data: Array = JSON.parse_string(data_path.get_as_text())
 	
 	# I am aware that sorting the data each time the application opens is not a good way :D

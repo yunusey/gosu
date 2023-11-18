@@ -29,8 +29,8 @@ func _on_game_over() -> void:
 	
 	if $Interface/MainContainer/UsernameContainer/UsernameEdit.text:
 		var data = []
-		if FileAccess.file_exists("user://scores.json"):
-			var data_path = FileAccess.open("user://scores.json", FileAccess.READ)
+		if FileAccess.file_exists("res://scores.json"):
+			var data_path = FileAccess.open("res://scores.json", FileAccess.READ)
 			data = JSON.parse_string(data_path.get_as_text())
 			
 		var user_data: Dictionary = {
@@ -41,7 +41,7 @@ func _on_game_over() -> void:
 		
 		data.append(user_data)
 		
-		var data_path = FileAccess.open("user://scores.json", FileAccess.WRITE)
+		var data_path = FileAccess.open("res://scores.json", FileAccess.WRITE)
 		data_path.store_string(JSON.stringify(data))
 
 func _unhandled_input(event):
