@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://band8x3mxub5s"]
+
+[ext_resource type="Script" path="res://Scripts/Hitball.gd" id="1_bhah5"]
+[ext_resource type="ArrayMesh" uid="uid://j1jnsob4rvrc" path="res://Meshes/Hitball.tres" id="1_m0axy"]
+[ext_resource type="Shader" path="res://Shaders/Hitball.gdshader" id="2_71lfv"]
+[ext_resource type="Script" path="res://Scripts/HitballMesh.gd" id="2_gynoj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hlof"]
+radius = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kjtxe"]
+shader = ExtResource("2_71lfv")
+shader_parameter/inside_radius = 0.6
+shader_parameter/outside_radius = 0.995
+shader_parameter/lifetime = 0.8
+shader_parameter/power = 0.598
+
+[node name="Hitball" type="CharacterBody2D" groups=["hitballs"]]
+script = ExtResource("1_bhah5")
+radius = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_1hlof")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_kjtxe")
+mesh = ExtResource("1_m0axy")
+script = ExtResource("2_gynoj")
+iteration = 40.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

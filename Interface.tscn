@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://besp7yxnra0x"]
+
+[ext_resource type="Script" path="res://Scripts/Interface.gd" id="1_6coka"]
+[ext_resource type="PackedScene" uid="uid://ccoiyd4uwofwr" path="res://AboutPage.tscn" id="2_4lrkw"]
+[ext_resource type="Script" path="res://Scripts/LeaderBoard.gd" id="2_jdjmn"]
+[ext_resource type="PackedScene" uid="uid://c6fowcuc1jor7" path="res://HelpPage.tscn" id="3_b3e02"]
+[ext_resource type="Script" path="res://Scripts/Pages.gd" id="4_3dv8b"]
+[ext_resource type="PackedScene" uid="uid://b050quk2dct6" path="res://OptionsPage.tscn" id="4_wgpkx"]
+
+[sub_resource type="GDScript" id="GDScript_0887f"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxg8l"]
+bg_color = Color(0, 0.713726, 0.419608, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Interface" type="CanvasLayer"]
+script = ExtResource("1_6coka")
+
+[node name="MainContainer" type="BoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -413.0
+offset_right = 898.0
+offset_bottom = 413.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+vertical = true
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="StartButton" type="Button" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="HelpButton" type="Button" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Help"
+
+[node name="OptionsButton" type="Button" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Options"
+
+[node name="AboutButton" type="Button" parent="MainContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "About"
+script = SubResource("GDScript_0887f")
+
+[node name="UsernameContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="UsernameEdit" type="LineEdit" parent="MainContainer/UsernameContainer"]
+layout_mode = 2
+tooltip_text = "Do not write your real name :D"
+theme_override_font_sizes/font_size = 100
+placeholder_text = "Username"
+max_length = 15
+clear_button_enabled = true
+caret_blink = true
+
+[node name="LeaderBoardContainer" type="ScrollContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -979.0
+offset_top = -413.0
+offset_right = -100.0
+offset_bottom = 403.285
+grow_horizontal = 0
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="LeaderBoard" type="VBoxContainer" parent="LeaderBoardContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 17
+script = ExtResource("2_jdjmn")
+
+[node name="LeaderboardLabel" type="Label" parent="LeaderBoardContainer/LeaderBoard"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_dxg8l")
+text = "👑 Leaderboard 👑"
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="AboutPage" parent="." instance=ExtResource("2_4lrkw")]
+visible = false
+
+[node name="HelpPage" parent="." instance=ExtResource("3_b3e02")]
+visible = false
+
+[node name="OptionsPage" parent="." instance=ExtResource("4_wgpkx")]
+visible = false
+script = ExtResource("4_3dv8b")
+
+[connection signal="pressed" from="MainContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonContainer/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="text_changed" from="MainContainer/UsernameContainer/UsernameEdit" to="." method="_on_username_changed"]

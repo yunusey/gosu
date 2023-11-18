@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq0bqoex4778g"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0v6r3"]
+size = Vector2(1920, 1080)
+
+[sub_resource type="Gradient" id="Gradient_8a5g8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.116639, 0.188353, 0.23461, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mbrwx"]
+gradient = SubResource("Gradient_8a5g8")
+
+[node name="Background" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_0v6r3")
+texture = SubResource("GradientTexture2D_mbrwx")

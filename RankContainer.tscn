@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d00syol5kqgoa"]
+
+[ext_resource type="Script" path="res://Scripts/RankLabelElement.gd" id="1_ikae2"]
+[ext_resource type="StyleBox" uid="uid://cocwmskrp6j5k" path="res://Styles/RankStyleBoxFlat.tres" id="1_mwsi3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujopu"]
+bg_color = Color(0.152941, 0.678431, 0.705882, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 50
+
+[node name="RankLabelElement" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_ikae2")
+
+[node name="RankLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = ExtResource("1_mwsi3")
+text = "1. tempname"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujopu")
+text = "Score: 0"
+horizontal_alignment = 1
