@@ -8,7 +8,7 @@ Welcome to Gosu, a fun game that showcases the basics of 2D game development in 
 
 ## Trying out the game 🕹️
 
-Experience the game directly in your web browser by playing [here](https://yunusey.github.io/gosu).
+Experience the game directly in your web browser by playing [here](https://yunusey.itch.io/gosu).
 
 ## Download 📥
 
