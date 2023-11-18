@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://band8x3mxub5s"]
 
 [ext_resource type="Script" path="res://Scripts/Hitball.gd" id="1_bhah5"]
-[ext_resource type="ArrayMesh" uid="uid://j1jnsob4rvrc" path="res://Meshes/Hitball.tres" id="1_m0axy"]
+[ext_resource type="ArrayMesh" path="res://Meshes/Hitball.tres" id="1_m0axy"]
 [ext_resource type="Shader" path="res://Shaders/Hitball.gdshader" id="2_71lfv"]
 [ext_resource type="Script" path="res://Scripts/HitballMesh.gd" id="2_gynoj"]
 
