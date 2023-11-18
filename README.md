@@ -6,6 +6,9 @@
 
 Welcome to Gosu, a fun game that showcases the basics of 2D game development in Godot.
 
+## Watch the video 📺
+[![Watch the video](https://img.youtube.com/vi/NJcLyayJhfU/maxresdefault.jpg)](https://youtu.be/NJcLyayJhfU)
+
 ## Trying out the game 🕹️
 
 Experience the game directly in your web browser by playing [here](https://yunusey.itch.io/gosu).
