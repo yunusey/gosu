@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djsl16w4728qq"
-path="res://.godot/imported/godot-logo.png-77c2788d101409bfd9f8aa2b21504a7c.ctex"
+uid="uid://dfsoq0tiukuk2"
+path="res://.godot/imported/star-emoji.png-2248dac38b79797c2c2bcc65d782cbec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ExternalImages/godot-logo.png"
-dest_files=["res://.godot/imported/godot-logo.png-77c2788d101409bfd9f8aa2b21504a7c.ctex"]
+source_file="res://Externals/star-emoji.png"
+dest_files=["res://.godot/imported/star-emoji.png-2248dac38b79797c2c2bcc65d782cbec.ctex"]
 
 [params]
 

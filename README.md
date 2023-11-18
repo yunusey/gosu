@@ -32,6 +32,7 @@ Gosu illustrates fundamental 2D game development features in Godot. Explore spec
 - [Detecting input](./Scripts/Hitball.gd)
 - [Scene instancing](./Main.tscn)
 - [GUI (Graphical User Interface)](./Interface.tscn)
+- [Audio](./Scripts/Main.gd)
 
 _P.S.: As a Godot learner, I might have made mistakes. If you notice any, please consider [contributing](#contributing-🤝) to improve this project!_
 

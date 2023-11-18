@@ -111,7 +111,7 @@ theme_override_font_sizes/bold_italics_font_size = 100
 theme_override_font_sizes/mono_font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_dxg8l")
 bbcode_enabled = true
-text = "[img width=100]ExternalImages/crown-emoji.png[/img] Leaderboard [img width=100]ExternalImages/crown-emoji.png[/img]"
+text = "[img width=100]Externals/crown-emoji.png[/img] Leaderboard [img width=100]Externals/crown-emoji.png[/img]"
 fit_content = true
 
 [node name="ScoreLabel" type="Label" parent="."]

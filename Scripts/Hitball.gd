@@ -4,6 +4,7 @@ signal game_over
 
 @export var radius: float = 10.
 @export var counter: Label
+@export var audio_player: AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -41,3 +42,4 @@ func _unhandled_input(event) -> void:
 		if (mouse_pos / size).length_squared() <= 1:
 			queue_free()
 			counter.text = str(int(counter.text) + 1)
+			audio_player.play()

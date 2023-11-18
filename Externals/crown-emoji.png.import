@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfsoq0tiukuk2"
-path="res://.godot/imported/star-emoji.png-7d9dbef6cca2a3e4b06fe838a48fc773.ctex"
+uid="uid://5xwuhe6k7ahn"
+path="res://.godot/imported/crown-emoji.png-28e94c6cd7788c70144a0b3fdd8329d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ExternalImages/star-emoji.png"
-dest_files=["res://.godot/imported/star-emoji.png-7d9dbef6cca2a3e4b06fe838a48fc773.ctex"]
+source_file="res://Externals/crown-emoji.png"
+dest_files=["res://.godot/imported/crown-emoji.png-28e94c6cd7788c70144a0b3fdd8329d2.ctex"]
 
 [params]
 

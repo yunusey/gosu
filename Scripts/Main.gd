@@ -6,6 +6,8 @@ var hitball: Resource = preload("res://Hitball.tscn")
 func _on_timer_timeout() -> void:
 	var instance = hitball.instantiate()
 	instance.counter = $Interface/ScoreLabel
+	instance.audio_player = $AudioStreamPlayer2D
+	
 	var radius: float = instance.get_radius()
 	instance.position = Vector2(
 		randf_range(0 + radius, 1920 - radius),

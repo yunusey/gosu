@@ -40,8 +40,8 @@ theme_override_font_sizes/bold_italics_font_size = 80
 theme_override_font_sizes/mono_font_size = 80
 bbcode_enabled = true
 text = "[center][img width=400]icon.png[/img][/center]
-Hi [img width=90]ExternalImages/godot-logo.png[/img] community!
-Thanks for trying out our game, hope you found it fun. You can leave a [img width=80]ExternalImages/star-emoji.png[/img] to our [url=\"https://www.github.com\"]project[/url]!"
+Hi [img width=90]Externals/godot-logo.png[/img] community!
+Thanks for trying out our game, hope you found it fun. You can leave a [img width=80]Externals/star-emoji.png[/img] to our [url=\"https://www.github.com\"]project[/url]!"
 fit_content = true
 
 [node name="BackButton" type="Button" parent="Container"]
