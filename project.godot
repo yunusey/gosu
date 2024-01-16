@@ -12,8 +12,12 @@ config_version=5
 
 config/name="gosu"
 run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
+
+[autoload]
+
+Requests="*res://Scripts/Requests.gd"
 
 [display]
 

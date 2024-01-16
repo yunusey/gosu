@@ -8,23 +8,38 @@ func _ready() -> void:
 	
 	$OptionsPage/Container/LevelSlider.value_changed.connect(_on_level_changed)
 
+
 func _on_start_button_pressed() -> void:
-	$MainContainer.hide()
-	$LeaderBoardContainer.hide()
-	$ScoreLabel.text = "0"
-	$ScoreLabel.show()
+	var username: String = $MainContainer/UsernameContainer/UsernameEdit.text
+	var password: String = $MainContainer/UsernameContainer/PasswordEdit.text
+	var result: Dictionary = await Requests.check_login(username, password)
+	if result["is_authorized"]:
+		$MainContainer.hide()
+		$LeaderBoardContainer.hide()
+		$ScoreLabel.text = "0"
+		$ScoreLabel.show()
+		$MainContainer/UsernameContainer/PasswordIncorrectLabel.hide()
+		
+		start_game.emit()
 	
-	start_game.emit()
+	elif not result["is_username_found"]:
+		$CreateAccountPage.show()
+		$CreateAccountPage.set_props(username, password)
+		$MainContainer/UsernameContainer/PasswordIncorrectLabel.hide()
+	
+	else:
+		$MainContainer/UsernameContainer/PasswordIncorrectLabel.show()
+
 
 func _on_game_over() -> void:
 	$MainContainer.show()
+	$MainContainer/UsernameContainer/PasswordIncorrectLabel.hide()
 	$LeaderBoardContainer.show()
 
 const ALLOWED_CHARS: String = "[A-Za-z_]"
 var regex: RegEx = RegEx.create_from_string(ALLOWED_CHARS)
 
 func _on_username_changed(new_text: String) -> void:
-	
 	var old_caret_position = $MainContainer/UsernameContainer/UsernameEdit.caret_column
 	
 	var word: String = ''

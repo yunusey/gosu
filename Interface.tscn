@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://besp7yxnra0x"]
+[gd_scene load_steps=10 format=3 uid="uid://besp7yxnra0x"]
 
 [ext_resource type="Script" path="res://Scripts/Interface.gd" id="1_6coka"]
 [ext_resource type="PackedScene" uid="uid://ccoiyd4uwofwr" path="res://AboutPage.tscn" id="2_4lrkw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6fowcuc1jor7" path="res://HelpPage.tscn" id="3_b3e02"]
 [ext_resource type="Script" path="res://Scripts/Pages.gd" id="4_3dv8b"]
 [ext_resource type="PackedScene" uid="uid://b050quk2dct6" path="res://OptionsPage.tscn" id="4_wgpkx"]
+[ext_resource type="PackedScene" uid="uid://dxoshints4kwp" path="res://CreateAccountPage.tscn" id="7_x4bn8"]
 
 [sub_resource type="GDScript" id="GDScript_0887f"]
 script/source = "extends Node
@@ -36,9 +37,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 100.0
-offset_top = -413.0
+offset_top = -404.0
 offset_right = 898.0
-offset_bottom = 413.0
+offset_bottom = 481.0
 grow_vertical = 2
 theme_override_constants/separation = 50
 vertical = true
@@ -49,37 +50,59 @@ theme_override_constants/separation = 17
 
 [node name="StartButton" type="Button" parent="MainContainer/ButtonContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "Start"
 
 [node name="HelpButton" type="Button" parent="MainContainer/ButtonContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "Help"
 
 [node name="OptionsButton" type="Button" parent="MainContainer/ButtonContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "Options"
 
 [node name="AboutButton" type="Button" parent="MainContainer/ButtonContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "About"
 script = SubResource("GDScript_0887f")
 
 [node name="UsernameContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
-theme_override_constants/separation = 27
+theme_override_constants/separation = 17
 
 [node name="UsernameEdit" type="LineEdit" parent="MainContainer/UsernameContainer"]
 layout_mode = 2
 tooltip_text = "Do not write your real name :D"
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 placeholder_text = "Username"
 max_length = 15
 clear_button_enabled = true
 caret_blink = true
+
+[node name="PasswordEdit" type="LineEdit" parent="MainContainer/UsernameContainer"]
+layout_mode = 2
+tooltip_text = "Do not write your real name :D"
+theme_override_font_sizes/font_size = 80
+placeholder_text = "Password"
+max_length = 15
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="PasswordIncorrectLabel" type="RichTextLabel" parent="MainContainer/UsernameContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "[center][color=red][i]Password is incorrect[/i][/color][/center]"
+fit_content = true
 
 [node name="LeaderBoardContainer" type="ScrollContainer" parent="."]
 anchors_preset = 6
@@ -135,6 +158,9 @@ visible = false
 [node name="OptionsPage" parent="." instance=ExtResource("4_wgpkx")]
 visible = false
 script = ExtResource("4_3dv8b")
+
+[node name="CreateAccountPage" parent="." instance=ExtResource("7_x4bn8")]
+visible = false
 
 [connection signal="pressed" from="MainContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainContainer/ButtonContainer/HelpButton" to="." method="_on_help_button_pressed"]

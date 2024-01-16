@@ -29,22 +29,19 @@ func _on_game_over() -> void:
 	get_tree().call_group("hitballs", "queue_free")
 	$Timer.stop()
 	
+	var username: String = $Interface/MainContainer/UsernameContainer/UsernameEdit.text
+	var password: String = $Interface/MainContainer/UsernameContainer/PasswordEdit.text
+	var score: int = $Interface/ScoreLabel.text.to_int()
+	var level: int = $Interface/OptionsPage/Container/LevelSlider.value
 	if $Interface/MainContainer/UsernameContainer/UsernameEdit.text:
-		var data = []
-		if FileAccess.file_exists("user://scores.json"):
-			var data_path = FileAccess.open("user://scores.json", FileAccess.READ)
-			data = JSON.parse_string(data_path.get_as_text())
-			
-		var user_data: Dictionary = {
-			"username": $Interface/MainContainer/UsernameContainer/UsernameEdit.text,
-			"level": $Interface/OptionsPage/Container/LevelSlider.value,
-			"score": int($Interface/ScoreLabel.text)
-		}
+		var success: bool = await Requests.submit_score(username, password, score, level)
+		if not success:
+			print('Failed to submit score')
+			return
 		
-		data.append(user_data)
-		
-		var data_path = FileAccess.open("user://scores.json", FileAccess.WRITE)
-		data_path.store_string(JSON.stringify(data))
+		var leaderboard: Dictionary = await Requests.get_scores()
+		$Interface/LeaderBoardContainer.show()
+		$Interface/LeaderBoardContainer/LeaderBoard.set_leaderboard(leaderboard)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("fullscreen"):
