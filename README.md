@@ -15,8 +15,6 @@ Experience the game directly in your web browser by playing [here](https://yunus
 
 _PS: If you download the app and play it using the editor, you could also see the global leaderboard. Unfortunately, Godot currently doesn't support API requests (there are several resources you can check about it). Currently, when you open the link above, it will just save your results._
 
-_PS 2: I am trying to make the API actually work. Currently, there are several problems with it--it reloads the server pretty often, making the results lost constantly. Hope I will figure that out. If you want to check the server, you can check [gosu-backend](https://github.com/yunusey/gosu-backend)._
-
 ## Download 📥
 
 Get the project by either cloning the repository:
